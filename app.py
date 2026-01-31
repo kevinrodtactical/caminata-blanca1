@@ -11,23 +11,39 @@ LINK_GRUPO = "https://chat.whatsapp.com/D40mfH1s3DyAiTGEs8ykL1"
 NUM_SOMBRA = "+51931382247"
 FECHA_OP = "01-FEB-2026"
 
-# --- DATA TÁCTICA PARA EL MAPA ---
+# --- DATA TÁCTICA CON COORDENADAS PRECISAS ---
 DATA = {
     "tambos": [
-        {"name": "Tambo Arequipa-C19", "lat": -12.083672, "lon": -77.034785},
-        {"name": "Tambo Arequipa-C25", "lat": -12.089616, "lon": -77.033552},
-        {"name": "Tambo Risso", "lat": -12.086314, "lon": -77.035504}
+        {"name": "Tambo Arequipa-C25", "lat": -12.08945, "lon": -77.03360},
+        {"name": "Tambo Risso (Arequipa 19)", "lat": -12.08375, "lon": -77.03485},
+        {"name": "Tambo Teleticket (Arequipa 13)", "lat": -12.07820, "lon": -77.03580}
     ],
     "salud": [
-        {"name": "Clínica Javier Prado (Emergencias)", "lat": -12.091302, "lon": -77.028373, "color": "red"},
-        {"name": "Hospital Rebagliati", "lat": -12.077935, "lon": -77.040427, "color": "orange"}
+        {"name": "Clínica Javier Prado", "lat": -12.09135, "lon": -77.02845, "color": "red"},
+        {"name": "Hospital Rebagliati", "lat": -12.07795, "lon": -77.04045, "color": "orange"}
     ],
     "extraccion": [
-        {"name": "EXTRACCIÓN A (J. Prado)", "lat": -12.091, "lon": -77.033},
-        {"name": "EXTRACCIÓN B (Risso)", "lat": -12.086, "lon": -77.034},
-        {"name": "EXTRACCIÓN C (Canevaro)", "lat": -12.079, "lon": -77.035}
+        {"name": "EXTRACCIÓN RISSO", "lat": -12.08380, "lon": -77.03310},
+        {"name": "EXTRACCIÓN CANEVARO", "lat": -12.07920, "lon": -77.03410}
     ]
 }
+
+# --- TRAYECTORIAS EXACTAS ---
+# Av. Arequipa (San Isidro a Lima)
+RUTA_AREQUIPA = [
+    [-12.09245, -77.03300], # Cruce Javier Prado
+    [-12.08375, -77.03480], # Risso
+    [-12.07915, -77.03575], # Canevaro
+    [-12.07085, -77.03730]  # Parque Cervantes (Llegada)
+]
+
+# Av. Petit Thouars (Ruta Sombra - Sentido Sur a Norte)
+RUTA_PETIT_THOUARS = [
+    [-12.09210, -77.03135], # Inicio paralela J. Prado
+    [-12.08345, -77.03315], # Altura Risso
+    [-12.07885, -77.03410], # Altura Canevaro
+    [-12.07035, -77.03565]  # Altura Parque Cervantes
+]
 
 # --- ESTILOS CSS ---
 st.markdown("""
@@ -105,3 +121,4 @@ elif opcion == "BITÁCORA":
     if st.button("Guardar"): st.session_state.log.append(f"{datetime.now().strftime('%H:%M')} - {txt}")
 
     for i in reversed(st.session_state.log): st.write(i)
+
