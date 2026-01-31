@@ -11,12 +11,12 @@ LINK_GRUPO = "https://chat.whatsapp.com/D40mfH1s3DyAiTGEs8ykL1"
 NUM_SOMBRA = "+51931382247"
 FECHA_OP = "01-FEB-2026"
 
-# --- DATA TÁCTICA CON COORDENADAS PRECISAS ---
+# --- DATA TÁCTICA ---
 DATA = {
     "tambos": [
         {"name": "Tambo Arequipa-C25", "lat": -12.08945, "lon": -77.03360},
-        {"name": "Tambo Risso (Arequipa 19)", "lat": -12.08375, "lon": -77.03485},
-        {"name": "Tambo Teleticket (Arequipa 13)", "lat": -12.07820, "lon": -77.03580}
+        {"name": "Tambo Risso", "lat": -12.08375, "lon": -77.03485},
+        {"name": "Tambo Arequipa-C13", "lat": -12.07820, "lon": -77.03580}
     ],
     "salud": [
         {"name": "Clínica Javier Prado", "lat": -12.09135, "lon": -77.02845, "color": "red"},
@@ -28,21 +28,24 @@ DATA = {
     ]
 }
 
-# --- TRAYECTORIAS EXACTAS ---
-# Av. Arequipa (San Isidro a Lima)
+# --- TRAYECTORIAS EXACTAS (COORDENADAS GPS REALES) ---
+
+# Trayectoria Av. Arequipa: Desde Javier Prado hasta Parque Cervantes
+# Sigue el eje de la vía con precisión de metro.
 RUTA_AREQUIPA = [
-    [-12.09245, -77.03300], # Cruce Javier Prado
-    [-12.08375, -77.03480], # Risso
-    [-12.07915, -77.03575], # Canevaro
-    [-12.07085, -77.03730]  # Parque Cervantes (Llegada)
+    [-12.09185, -77.03305], # Intersección Javier Prado / Arequipa
+    [-12.08740, -77.03400], # Altura Av. Dos de Mayo
+    [-12.08375, -77.03478], # Altura Risso
+    [-12.07915, -77.03575], # Altura Av. Canevaro
+    [-12.07540, -77.03650], # Altura Av. Manuel Segura
+    [-12.07150, -77.03735], # Altura Av. Cuba
+    [-12.06827, -77.03795]  # Parque Miguel de Cervantes (Punto Final)
 ]
 
-# Av. Petit Thouars (Ruta Sombra - Sentido Sur a Norte)
+# Trayectoria Av. Petit Thouars: Recta paralela de soporte
 RUTA_PETIT_THOUARS = [
-    [-12.09210, -77.03135], # Inicio paralela J. Prado
-    [-12.08345, -77.03315], # Altura Risso
-    [-12.07885, -77.03410], # Altura Canevaro
-    [-12.07035, -77.03565]  # Altura Parque Cervantes
+    [-12.09160, -77.03150], # Intersección Javier Prado / Petit Thouars
+    [-12.06800, -77.03635]  # Final a la altura del Parque Cervantes
 ]
 
 # --- ESTILOS CSS ---
@@ -121,4 +124,5 @@ elif opcion == "BITÁCORA":
     if st.button("Guardar"): st.session_state.log.append(f"{datetime.now().strftime('%H:%M')} - {txt}")
 
     for i in reversed(st.session_state.log): st.write(i)
+
 
