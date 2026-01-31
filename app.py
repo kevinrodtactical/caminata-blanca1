@@ -11,12 +11,12 @@ LINK_GRUPO = "https://chat.whatsapp.com/D40mfH1s3DyAiTGEs8ykL1"
 NUM_SOMBRA = "+51931382247"
 FECHA_OP = "01-FEB-2026"
 
-# --- DATA TÁCTICA ---
+# --- DATA TÁCTICA ACTUALIZADA ---
 DATA = {
     "tambos": [
         {"name": "Tambo Arequipa-C25", "lat": -12.08945, "lon": -77.03360},
         {"name": "Tambo Risso", "lat": -12.08375, "lon": -77.03485},
-        {"name": "Tambo Arequipa-C13", "lat": -12.07820, "lon": -77.03580}
+        {"name": "Tambo Parque Cervantes", "lat": -12.07150, "lon": -77.03710}
     ],
     "salud": [
         {"name": "Clínica Javier Prado", "lat": -12.09135, "lon": -77.02845, "color": "red"},
@@ -24,28 +24,28 @@ DATA = {
     ],
     "extraccion": [
         {"name": "EXTRACCIÓN RISSO", "lat": -12.08380, "lon": -77.03310},
-        {"name": "EXTRACCIÓN CANEVARO", "lat": -12.07920, "lon": -77.03410}
+        {"name": "EXTRACCIÓN CANEVARO", "lat": -12.07920, "lon": -77.03410},
+        {"name": "EXTRACCIÓN ESTADIO", "lat": -12.06750, "lon": -77.03550}
     ]
 }
 
-# --- TRAYECTORIAS EXACTAS (COORDENADAS GPS REALES) ---
+# --- TRAYECTORIAS PRECISAS (EXTENDIDAS HASTA EL ESTADIO) ---
 
-# Trayectoria Av. Arequipa: Desde Javier Prado hasta Parque Cervantes
-# Sigue el eje de la vía con precisión de metro.
+# Av. Arequipa: Desde Javier Prado hasta el Parque de la Reserva (Estadio)
 RUTA_AREQUIPA = [
-    [-12.09185, -77.03305], # Intersección Javier Prado / Arequipa
-    [-12.08740, -77.03400], # Altura Av. Dos de Mayo
-    [-12.08375, -77.03478], # Altura Risso
-    [-12.07915, -77.03575], # Altura Av. Canevaro
-    [-12.07540, -77.03650], # Altura Av. Manuel Segura
-    [-12.07150, -77.03735], # Altura Av. Cuba
-    [-12.06827, -77.03795]  # Parque Miguel de Cervantes (Punto Final)
+    [-12.09185, -77.03305], # Inicio: Javier Prado
+    [-12.08375, -77.03478], # Risso
+    [-12.07915, -77.03575], # Canevaro
+    [-12.07150, -77.03735], # Parque Cervantes / Av. Cuba
+    [-12.06720, -77.03810], # Av. 28 de Julio
+    [-12.06580, -77.03680]  # Punto Final: Parque de la Reserva (Frente al Estadio)
 ]
 
-# Trayectoria Av. Petit Thouars: Recta paralela de soporte
+# Av. Petit Thouars: Línea Recta de Apoyo Sombra
 RUTA_PETIT_THOUARS = [
-    [-12.09160, -77.03150], # Intersección Javier Prado / Petit Thouars
-    [-12.06800, -77.03635]  # Final a la altura del Parque Cervantes
+    [-12.09160, -77.03150], # Inicio J. Prado
+    [-12.08345, -77.03315], # Risso
+    [-12.06520, -77.03520]  # Final: Altura Jr. Madre de Dios (Estadio)
 ]
 
 # --- ESTILOS CSS ---
@@ -124,5 +124,6 @@ elif opcion == "BITÁCORA":
     if st.button("Guardar"): st.session_state.log.append(f"{datetime.now().strftime('%H:%M')} - {txt}")
 
     for i in reversed(st.session_state.log): st.write(i)
+
 
 
