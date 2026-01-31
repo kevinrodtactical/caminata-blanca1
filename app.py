@@ -59,12 +59,30 @@ if opcion == "MAPA TÁCTICO":
     st.markdown("🔵 **Azul**: Ruta Marcha | 🏁 **Punteada**: Ruta Sombra | 🏥 **Rojo**: Salud | 🛒 **Verde**: Tambos")
 
 elif opcion == "MANUAL SOP":
-    st.title("📜 MANUAL DE PROCEDIMIENTOS")
-    with st.expander("🛡️ DISCIPLINA TÁCTICA", expanded=True):
-        st.write("1. Mirada a la multitud, no a la marcha.\n2. Manos siempre libres.\n3. Mantener cápsula en Diamante.")
-    with st.expander("🚨 PROTOCOLO DE EXTRACCIÓN"):
-        st.error("CÓDIGO ROJO: El PM asegura al VIP. Flancos cubren. Retirada inmediata a la transversal roja hacia Petit Thouars.")
+    st.title("📜 MANUAL DE PROCEDIMIENTOS EXPANDIDO")
     
+    st.markdown('<div class="sop-header">1. VIGILANCIA: MIRADA A LA MULTITUD</div>', unsafe_allow_html=True)
+    st.write("""
+    - **Sectores de Responsabilidad:** No mire al VIP. Su sector es el público. Divida su visión en sectores: S-2 Izquierda, S-3 Derecha.
+    - **Detección Temprana:** Identifique manos ocultas, ropa inusual para el clima (27°C) o trayectorias de interceptación.
+    - **Barrido Visual:** Use visión periférica para movimiento y focal para identificar objetos sospechosos.
+    """)
+    
+
+    st.markdown('<div class="sop-header">2. DISPONIBILIDAD: MANOS SIEMPRE LIBRES</div>', unsafe_allow_html=True)
+    st.write("""
+    - **Guardia Pasiva:** Manos entrelazadas al frente o sueltas sobre la cintura. Nunca en bolsillos o cruzadas.
+    - **Prohibición de Cargas:** No cargue maletas, paraguas ni celulares. El móvil solo se usa para reportes rápidos o SOP.
+    - **Gestión de Ciclistas:** Use las manos libres para hacer señales preventivas y apartar obstáculos suavemente.
+    """)
+
+    st.markdown('<div class="sop-header">3. FORMACIÓN: CÁPSULA EN DIAMANTE</div>', unsafe_allow_html=True)
+    st.write("""
+    - **S-1 (Puntero):** Rompehielos. Avisa sobre obstáculos y abre el flujo.
+    - **Flancos (S-2/S-3):** Muros laterales. Mantienen el espacio vital del VIP.
+    - **S-4 (Retaguardia):** Vigilancia 180° hacia atrás. Evita seguimientos.
+    - **Líder (PM):** Responsable de la integridad física directa del VIP (Fuerza de cobertura).
+    """)
 
 elif opcion == "COMMS":
     st.title("📲 COMUNICACIONES")
@@ -78,11 +96,12 @@ elif opcion == "COMMS":
 
 elif opcion == "SOS":
     st.markdown('<div class="sos-blink">CÓDIGO ROJO<br>EXTRACCIÓN</div>', unsafe_allow_html=True)
-    st.write("Levante el móvil. Pantalla hacia Petit Thouars.")
+    st.write("Levante el móvil. Pantalla hacia Petit Thouars, llame al vehiculo sombra y dirijase al este")
 
 elif opcion == "BITÁCORA":
     st.title("📝 REGISTRO")
     if 'log' not in st.session_state: st.session_state.log = []
     txt = st.text_input("Novedad:")
     if st.button("Guardar"): st.session_state.log.append(f"{datetime.now().strftime('%H:%M')} - {txt}")
+
     for i in reversed(st.session_state.log): st.write(i)
